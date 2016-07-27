@@ -13,4 +13,8 @@ public class Demo {
     public Demo(){
         System.err.print("Hola Mundo");
     }
+    
+    public void Demo2(){
+        System.err.print("Hola2");
+    }
 }
