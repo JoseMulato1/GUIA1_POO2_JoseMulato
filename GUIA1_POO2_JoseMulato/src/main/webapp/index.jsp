@@ -41,20 +41,11 @@
                 <!-- side-menu -->
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="index.jsp"><i class="fa fa-dashboard fa-fw"></i>Unidades Organizativa</a>
-                    </li>
-                    <li>
-                        <a href="index2.jsp"><i class="fa fa-table fa-fw"></i>Personas</a>
-                    </li>
-                    <li>
-                        <a href="index3.jsp"><i class="fa fa-edit fa-fw"></i>Usuarios</a>
+                        <a href="index.jsp"><i class="fa fa-dashboard fa-fw"></i>REPORTES</a>
                     </li>
                         </ul>
                         <!-- second-level-items -->
-                    </li>
-                    </ul>
-                <!-- end side-menu -->
-            </div>
+                    </div>
             <!-- end sidebar-collapse -->
         </nav>
     
@@ -69,32 +60,88 @@
                         <div class="panel-heading">
                             UNIDAD ORGANIZATIVA
                         </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-         
-        <h1>${mensAler}</h1>
-        <form name="EquiposForm" method="POST" action="PiezasServ">    
-           
-            <input type="hidden" name="CodiPiez" value="${CodiPiez}"/>
-           <div class="form-group">
-            <label for="NombPiez">Nombre de la unidad: </label>
-            <input class="form-control" type="text" name="NombPiez" value="${NombPiez}"/><br/>
-            </div>
-             
-            <input class="btn btn-primary" type="submit" name="cursBton" value="Ver Reporte"/>
-            
-        </form>
+                        <div class="collapsible-body">
+                              <form class="" method="post" action="Scripts/report1.jsp"target="_blank">
+                              <div class="row">
+                                  <div class="col s12 m5 l6">
+                                      <div class="input-field center-align ">
+                                        <select name="cmbUnidad" id="cmbUnidad" class="form-control">
+                                        <jsp:useBean id="beanUnidadCtrl" class="com.sv.udb.controlador.UnidadCtrl" scope="page"/>
+                                        <c:forEach items="${beanUnidadCtrl.consTodo()}" var="fila">
+                                            <c:choose>
+                                                <c:when test="${fila.codiUnid eq cmbUnidad}">
+                                                    <option name="codi_unid" value="${fila.codiUnid}" selected="">${fila.nombUnid}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                            <option name="codi_unid" value="${fila.codiUnid}">${fila.nombUnid}</option>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach>
+                                        </select>
+                                      </div>
+                                  </div>
+                                  <div class="col s12 m12 l3">
+                                      <center><br><button class="btn btn-primary" type="submit">Ver Reporte</button></center>
+                                  </div>
+                              </div>
+                              </form>
                           </div>
-          </div>
-            </div>
-       <div class="row">
+                                        <br>
+                            <div class="row">
                 <div class="col-lg-12">
-                  <!--   Kitchen Sink -->
+                    <!-- Form Elements -->
                     <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                            
+                  <div class="panel-heading">
+                            VISITA PERSONA
+                        </div>
+                                      
+             <form class="" method="post" action="Scripts/report2.jsp"target="_blank">
+                              <div class="row">
+                                  <div class="col s12 m7 l6">
+                                      <div class="input-field">
+                                        <select name="cmbPersona" id="cmbPersona" class="form-control">
+                                        <jsp:useBean id="beanPersonaCtrl" class="com.sv.udb.controlador.PersonaCtrl" scope="page"/>
+                                        <c:forEach items="${beanPersonaCtrl.consTodo()}" var="fila">
+                                            <c:choose>
+                                                <c:when test="${fila.codiPers eq cmbPersona}">
+                                                    <option name="codi_pers" value="${fila.codiPers}" selected="">${fila.nombPers} ${fila.apelPers} - ${fila.duiPers}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                            <option name="codi_pers" value="${fila.codiPers}">${fila.nombPers} ${fila.apelPers} - ${fila.duiPers}</option>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach>
+                                        </select>
+                                      </div>
+                                  </div>
+                                  <div class="col s12 m12 l3">
+                                      <center><br><button class="btn btn-primary" type="submit">Ver Reporte</button></center>
+                                  </div>
+                              </div>
+                              </form>               
+        </div>
+                                        <br>                      
+                            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
+                  <div class="panel-heading">
+                            VISITA UNIDAD ORGANIZATIVA POR FECHAS
+                        </div>
+                                        <div class="col s12 m6 offset-l1 l4">
+                                        <form class="" method="post" action="Scripts/report3.jsp"target="_blank">
+                                            <label for="date1">Fecha Inicio</label>
+                                          <input type="date"class="form-control" name="date1" id="date1">
+                                      </div>
+                                      <div class="col s12 m6 l4">
+                                          <label for="date2">Fecha Fin</label>
+                                          <input type="date"class="form-control" name="date2" id="date2">
+                                      </div>
+                                      <div class="col s12 m12 l3">
+                                          <center><br><button class="btn btn-primary" type="submit">Ver Reporte</button></center>
+                                      </div>
+                                  </div>
+                              </form>
         </div>
         <script src="plugins/jquery-1.10.2.js"></script>
     <script src="plugins/bootstrap/bootstrap.min.js"></script>

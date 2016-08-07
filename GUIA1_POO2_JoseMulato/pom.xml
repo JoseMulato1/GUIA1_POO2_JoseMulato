@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sv.udb</groupId>
-    <artifactId>GUIA1_POO2_JoseMulato</artifactId>
+    <artifactId>GUIA01_POO2_JoseMulato</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>GUIA1_POO2_JoseMulato</name>
+    <name>GUIA01_POO2_JoseMulato</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -15,19 +15,6 @@
     </properties>
     
     <dependencies>
-        
-    <dependency>
-        <groupId>jasperreports</groupId>
-        <artifactId>jasperreports</artifactId>
-        <version>3.5.3</version>
-    </dependency>
-    
-    <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.9</version>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -46,8 +33,25 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>5.5.0</version>
+        </dependency>
+     <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.7</version>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
