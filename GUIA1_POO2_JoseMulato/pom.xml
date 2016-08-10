@@ -51,6 +51,13 @@
             <artifactId>groovy-all</artifactId>
             <version>2.4.7</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.0.6</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
